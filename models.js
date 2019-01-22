@@ -23,8 +23,9 @@ const Vegetable = plantrDB.define('vegetable', {
 Plot.belongsTo(Gardener);
 Gardener.hasOne(Plot);
 
-Vegetable.belongsToMany(Plot, {through: vegetable_plot})
-Plot.belongsToMany(Vegetable, {through: vegetable_plot})
+Vegetable.belongsToMany(Plot, {through: 'vegetable_plot'})
+Plot.belongsToMany(Vegetable, {through: 'vegetable_plot'})
 Gardener.belongsTo(Vegetable, {as: 'favorite_vegetable'})
 
-module.exports = plantrDB
+
+module.exports ={plantrDB, Gardener, Plot, Vegetable}
